@@ -6,10 +6,13 @@ provider "aws" {
 }
 
 resource "aws_instance" "testcase1"{
-  ami=
-  instance_type=
-  key_name=
+  ami="ami-0557a15b87f6559cf"
+  //this ami will change time to time by aws so you can choose any ami acoding to you reqirment.
+  instance_type="t2.micro"
+  key_name="key_pair_name"
+  //if you dont use key_name here aws will defultly add key_pair 
   vpc_security_group_ids=["sg-***************"]
+  // //if you dont use security_group here aws will defultly add security group to this ec2-instance 
 }
 
 resource "aws_ec2_instance_state" "testcase1"{
