@@ -15,10 +15,13 @@ resource "aws_instance" "testcase1"{
   // //if you dont use security_group here aws will defultly add security group to this ec2-instance 
 }
 
+//these two resource is optional one becuase these two will be used to stop  instance to run and running instance to stop using terraform
 resource "aws_ec2_instance_state" "testcase1"{
-
+  instance_id= aws_instance.testcase1.id
+  state="running"
 }
 
 resource "aws_ec2_instance_state" "testcase2"{
-
+  instance_id= aws_instance.testcase1.id
+  state="stopped"
 }
