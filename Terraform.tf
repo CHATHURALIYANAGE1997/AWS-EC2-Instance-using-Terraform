@@ -6,7 +6,10 @@ provider "aws" {
 }
 
 resource "aws_instance" "testcase1"{
-
+  ami=
+  instance_type=
+  key_name=
+  vpc_security_group_ids=["sg-***************"]
 }
 
 resource "aws_ec2_instance_state" "testcase1"{
