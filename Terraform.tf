@@ -10,12 +10,12 @@ resource "aws_instance" "testcase1"{
 #  this ami will change time to time by aws so you can choose any ami acoding to you reqirment.
   instance_type="t2.micro"
   key_name="key_pair_name"
-#  if you dont use key_name here aws will defultly add key_pair 
+#  if you don't use key_name here aws will defultly add key_pair 
   vpc_security_group_ids=["sg-***************"]
-#  if you dont use security_group here aws will defultly add security group to this ec2-instance 
+#  if you don't use security_group here aws will defultly add security group to this ec2-instance 
 }
 
-# these two resource is optional one becuase these two will be used to stop  instance to run and running instance to stop using terraform
+# these two resource is optional one becuase these two will be used to stop instance to run and running instance to stop using terraform
 resource "aws_ec2_instance_state" "testcase1"{
   instance_id= aws_instance.testcase1.id
   state="running"
