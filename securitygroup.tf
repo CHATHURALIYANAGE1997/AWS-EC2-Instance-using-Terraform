@@ -1,3 +1,10 @@
+provider "aws" {
+  region ="Chose your region accoding to your reqirment"
+  access_key="yor_aws_access_key"
+  secret_key="your_aws_secret_key"
+#  These two key in your profile section user Security credentials
+#  If you create only security group you will have to use this Security credentials
+}
 resource "aws_security_group" "demo-sg" {
   name = “sec-group”
   description = "Allow HTTPS, HTTP and SSH traffic via Terraform"
