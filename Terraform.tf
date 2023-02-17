@@ -5,7 +5,11 @@ provider "aws" {
 #   these two key in your profile section user Security credentials
 }
 
-resource "aws_instance" "testcase1"{
+resource "aws_instance" "testcase1"{\
+#  ec2-instance-name
+  tags = {
+    Name = "my-ec2-instance"
+  }
   ami="ami-0557a15b87f6559cf"
 #  this ami will change time to time by aws so you can choose any ami acoding to you reqirment.
   instance_type="t2.micro"
@@ -13,10 +17,7 @@ resource "aws_instance" "testcase1"{
 #  if you don't use key_name here aws will defultly add key_pair 
   vpc_security_group_ids=["sg-***************"]
 #  if you don't use security_group here aws will defultly add security group to this ec2-instance 
-#ec2-instance-name
-   tags = {
-    Name = "my-ec2-instance"
-  }
+
 }
 
 # these two resource is optional one becuase these two will be used to stop instance to run and running instance to stop using terraform
